@@ -7,7 +7,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ScorePK implements Serializable {/**
+public class ScorePK implements Serializable {
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
