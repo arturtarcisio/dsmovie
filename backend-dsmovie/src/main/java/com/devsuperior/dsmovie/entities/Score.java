@@ -6,13 +6,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "tb_score")
 public class Score implements Serializable {	
@@ -24,8 +17,18 @@ public class Score implements Serializable {
 	@EmbeddedId
 	private ScorePK id = new ScorePK();
 	
-	private Double value;
+	private Double value;	
 	
+	public Score(ScorePK id, Double value) {
+		super();
+		this.id = id;
+		this.value = value;
+	}
+
+	public Score() {
+		super();
+	}
+
 	public void setMovie(Movie movie) {
 		id.setMovie(movie);
 	}
@@ -33,5 +36,28 @@ public class Score implements Serializable {
 	public void setUser(User user) {
 		id.setUser(user);
 	}
+
+	public ScorePK getId() {
+		return id;
+	}
+
+	public void setId(ScorePK id) {
+		this.id = id;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
+		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return "Score [id=" + id + ", value=" + value + "]";
+	}
+	
+	
 
 }

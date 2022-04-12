@@ -15,20 +15,19 @@ import com.devsuperior.dsmovie.services.ScoreService;
 @RestController
 @RequestMapping("/api/v1/scores")
 public class ScoreController {
-	
+
 	@Autowired
 	private ScoreService scoreService;
-		
+
 	@PutMapping
-	public ResponseEntity<MovieDTO> saveScore (@RequestBody ScoreDTO dto) {
+	public ResponseEntity<MovieDTO> saveScore(@RequestBody ScoreDTO dto) {
 		var movieDTO = scoreService.saveScore(dto);
-		
-		var uri = ServletUriComponentsBuilder
-				.fromCurrentRequest()
+
+		var uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}")
 				.buildAndExpand(movieDTO.getId())
 				.toUri();
-		
+
 		return ResponseEntity.created(uri).body(movieDTO);
 	}
 

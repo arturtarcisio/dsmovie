@@ -41,9 +41,8 @@ public class ScoreService {
 		var listSize = movie.getScores().size();		
 		
 		if (user == null) {
-			user = User.builder()
-					.email(dto.getEmail())
-					.build();
+			user = new User();
+			user.setEmail(dto.getEmail());
 			user = userRepository.saveAndFlush(user);
 		}		
 		

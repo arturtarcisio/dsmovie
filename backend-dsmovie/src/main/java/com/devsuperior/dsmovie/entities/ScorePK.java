@@ -6,14 +6,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Embeddable
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ScorePK implements Serializable {
 	/**
 	 * 
@@ -27,5 +20,38 @@ public class ScorePK implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	public ScorePK() {
+		super();
+	}
+
+	public ScorePK(Movie movie, User user) {
+		super();
+		this.movie = movie;
+		this.user = user;
+	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "ScorePK [movie=" + movie + ", user=" + user + "]";
+	}
+	
+	
 
 }
